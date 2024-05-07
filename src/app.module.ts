@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
@@ -25,8 +27,8 @@ import { RabbitMQService } from './rabbitmq/rabbitmq.service';
     HotelReservationModule,
     RabbitMQModule,
   ],
-  controllers: [UsersController],
-  providers: [UsersService, RabbitMQService],
+  controllers: [AppController, UsersController],
+  providers: [AppService, UsersService, RabbitMQService],
 })
 export class AppModule {}
 
